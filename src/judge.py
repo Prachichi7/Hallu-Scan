@@ -1,14 +1,11 @@
 """
-Layer 2: Llama 3.1 8B via Groq API
+Layer 2: Llama via Groq API
 Only called when DeBERTa is uncertain.
 Explains WHY something is hallucinated and which span is wrong.
 """
 
 import os
 import json
-from groq import Groq
-
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 JUDGE_PROMPT = """You are a hallucination detection expert. Your job is to check whether an LLM's claim is supported by the given source.
 
@@ -37,12 +34,26 @@ Respond ONLY with valid JSON, no explanation outside the JSON:
 
 def run_judge(source: str, claim: str, contra_score: float) -> dict:
     """
-    Calls Llama 3.1 8B on Groq to judge ambiguous cases.
+    Calls Llama on Groq to judge ambiguous cases.
     Returns structured verdict with span and reason.
     """
+    api_key = os.environ.get("GROQ_API_KEY")
+    
+    if not api_key:
+        return {
+            "label": "NEUTRAL",
+            "confidence": 0.5,
+            "contradicting_span": None,
+            "reason": "Groq API key not configured — Layer 2 unavailable.",
+            "resolved_by": "Fallback (no key)"
+        }
+
     try:
+        from groq import Groq
+        client = Groq(api_key=api_key)
+        
         response = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
+            model="llama-3.3-70b-versatile",
             messages=[{
                 "role": "user",
                 "content": JUDGE_PROMPT.format(
@@ -57,7 +68,7 @@ def run_judge(source: str, claim: str, contra_score: float) -> dict:
         )
 
         result = json.loads(response.choices[0].message.content)
-        result["resolved_by"] = "DeBERTa + Llama3"
+        result["resolved_by"] = "DeBERTa + Llama"
         return result
 
     except Exception as e:
