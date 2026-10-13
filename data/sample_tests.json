@@ -1,0 +1,72 @@
+[
+  {
+    "question": "Murder cases in Mumbai 2024",
+    "source": "NCRB 2024 data shows Mumbai recorded 340 murder cases in 2024.",
+    "claim": "Mumbai recorded over 500 murders in 2024 according to official records.",
+    "domain": "Crime",
+    "expected_label": "HALLUCINATED"
+  },
+  {
+    "question": "Cybercrime trend in India",
+    "source": "NCRB 2024 reports a 17% surge in cybercrime cases across India compared to 2023.",
+    "claim": "Cybercrime in India rose by approximately 17% in 2024 as per NCRB.",
+    "domain": "Crime",
+    "expected_label": "FAITHFUL"
+  },
+  {
+    "question": "Delhi crime rate",
+    "source": "Delhi recorded 45,000 total IPC cases in 2024 with a crime rate of 210 per lakh population.",
+    "claim": "Delhi has one of the lowest crime rates among Indian metros.",
+    "domain": "Crime",
+    "expected_label": "HALLUCINATED"
+  },
+  {
+    "question": "Reliance P/E ratio",
+    "source": "Reliance Industries had a P/E ratio of 28.4 as of Q3 2024.",
+    "claim": "Reliance Industries is trading at a P/E of around 28, which is moderate for its sector.",
+    "domain": "Finance",
+    "expected_label": "FAITHFUL"
+  },
+  {
+    "question": "SIP minimum investment",
+    "source": "Most Indian mutual funds allow SIP investments starting from Rs 500 per month.",
+    "claim": "You need at least Rs 5,000 per month to start a SIP in India.",
+    "domain": "Finance",
+    "expected_label": "HALLUCINATED"
+  },
+  {
+    "question": "Nifty 50 base year",
+    "source": "The Nifty 50 index was launched in 1996 with a base value of 1000.",
+    "claim": "Nifty 50 was launched in 1996 and started with a base index value of 1000.",
+    "domain": "Finance",
+    "expected_label": "FAITHFUL"
+  },
+  {
+    "question": "Eiffel Tower height",
+    "source": "The Eiffel Tower stands at 330 metres tall including its broadcast antenna.",
+    "claim": "The Eiffel Tower is approximately 330 metres tall.",
+    "domain": "General",
+    "expected_label": "FAITHFUL"
+  },
+  {
+    "question": "Python creation",
+    "source": "Python was created by Guido van Rossum and first released in 1991.",
+    "claim": "Python was invented by Linus Torvalds in the early 1990s.",
+    "domain": "General",
+    "expected_label": "HALLUCINATED"
+  },
+  {
+    "question": "Bengaluru population",
+    "source": "Bengaluru had an estimated population of 12.3 million as of 2024.",
+    "claim": "Bengaluru is home to roughly 12 million people, making it India's third-largest city.",
+    "domain": "Crime",
+    "expected_label": "FAITHFUL"
+  },
+  {
+    "question": "SEBI establishment",
+    "source": "SEBI was established in 1988 as a non-statutory body and given statutory powers in 1992.",
+    "claim": "SEBI was founded in 1992 as India's capital markets regulator.",
+    "domain": "Finance",
+    "expected_label": "PARTIALLY_HALLUCINATED"
+  }
+]
